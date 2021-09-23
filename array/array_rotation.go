@@ -8,9 +8,34 @@ func leftRotateByOne(arr []int) {
 	arr[len(arr)-1] = firstItem
 }
 
-func RotateArrayOneByOne(arr []int, rotations int) []int {
-	for i := 0; i < rotations; i++ {
+func RotateArrayOneByOne(arr []int, rotation int) []int {
+	for i := 0; i < rotation; i++ {
 		leftRotateByOne(arr)
 	}
+	return arr
+}
+
+func ReverseArray(arr []int, start, end int) {
+	for start < end {
+		temp := arr[start]
+		arr[start] = arr[end]
+		arr[end] = temp
+		start++
+		end--
+	}
+}
+func RotateArrayReverseArray(arr []int, rotation int) []int {
+	if rotation == 0 {
+		return arr
+	}
+
+	// in case the rotating factor is
+	// greater than array length
+	rotation = rotation % len(arr)
+
+	ReverseArray(arr, 0, rotation-1)
+	ReverseArray(arr, rotation, len(arr)-1)
+	ReverseArray(arr, 0, len(arr)-1)
+
 	return arr
 }
