@@ -9,6 +9,10 @@ func leftRotateByOne(arr []int) {
 }
 
 func RotateArrayOneByOne(arr []int, rotation int) []int {
+	// in case the rotating factor is
+	// greater than array length
+	rotation = rotation % len(arr)
+
 	for i := 0; i < rotation; i++ {
 		leftRotateByOne(arr)
 	}
