@@ -1,6 +1,6 @@
 package search
 
-func findPivot(arr []int, low, high int) int {
+func FindPivot(arr []int, low, high int) int {
 	if high < low || low > high {
 		return -1
 	}
@@ -16,8 +16,8 @@ func findPivot(arr []int, low, high int) int {
 	}
 
 	if arr[low] > arr[mid] {
-		return findPivot(arr, low, mid-1)
+		return FindPivot(arr, low, mid-1)
 	}
 
-	return findPivot(arr, mid+1, high)
+	return FindPivot(arr, mid+1, high)
 }

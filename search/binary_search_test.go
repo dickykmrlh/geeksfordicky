@@ -61,7 +61,7 @@ func Test_binarySearch(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			actual := binarySearch(tt.args.arr, tt.args.low, tt.args.high, tt.args.key)
+			actual := BinarySearch(tt.args.arr, tt.args.low, tt.args.high, tt.args.key)
 			assert.Equal(t, tt.expected, actual)
 		})
 	}

@@ -1,6 +1,6 @@
 package search
 
-func binarySearch(arr []int, low, high, key int) int {
+func BinarySearch(arr []int, low, high, key int) int {
 	if high < low || low > high {
 		return -1
 	}
@@ -11,8 +11,8 @@ func binarySearch(arr []int, low, high, key int) int {
 	}
 
 	if key > arr[mid] {
-		return binarySearch(arr, mid+1, high, key)
+		return BinarySearch(arr, mid+1, high, key)
 	}
 
-	return binarySearch(arr, low, mid-1, key)
+	return BinarySearch(arr, low, mid-1, key)
 }
