@@ -48,3 +48,54 @@ func Test_findKeyInSortedAndRotatedArray(t *testing.T) {
 		})
 	}
 }
+
+func Test_isSumOfTwoElementExist(t *testing.T) {
+	type args struct {
+		arr []int
+		sum int
+	}
+	tests := []struct {
+		name string
+		args args
+		expected bool
+	}{
+		{
+			name: "should return true, when 2 element with total sum exist",
+			args: args{
+				arr : []int{11, 15, 6, 8, 9, 10},
+				sum: 16,
+			},
+			expected: true,
+		},
+		{
+			name: "should return true, when 2 element with total sum exist",
+			args: args{
+				arr : []int{11, 15, 26, 38, 9, 10},
+				sum: 35,
+			},
+			expected: true,
+		},
+		{
+			name: "should return true, when 2 element with total sum exist",
+			args: args{
+				arr : []int{11, 15, 26, 38, 9, 10},
+				sum: 35,
+			},
+			expected: true,
+		},
+		{
+			name: "should return false, when 2 element with total sum didnt exist",
+			args: args{
+				arr : []int{11, 15, 26, 38, 9, 10},
+				sum: 45,
+			},
+			expected: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			actual := isSumOfTwoElementExist(tt.args.arr, tt.args.sum)
+			assert.Equal(t, tt.expected, actual)
+		})
+	}
+}
