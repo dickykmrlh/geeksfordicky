@@ -60,4 +60,41 @@ func TestRotateArrayReverseArray(t *testing.T) {
 	}
 }
 
-
+func TestFindHowManyTimeArrayHadBeenRotated(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		expected int
+	}{
+		{
+			name: "should return correct rotated counts",
+			args: args{
+				arr: []int{15, 18, 2, 3, 6, 12},
+			},
+			expected: 2,
+		},
+		{
+			name: "should return correct rotated counts",
+			args: args{
+				arr: []int{7, 9, 11, 12, 5},
+			},
+			expected: 4,
+		},
+		{
+			name: "should return 0, when array is not rotated",
+			args: args{
+				arr: []int{7, 9, 11, 12, 15},
+			},
+			expected: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			 actual := FindHowManyTimeArrayHadBeenRotated(tt.args.arr)
+			 assert.Equal(t, tt.expected, actual)
+		})
+	}
+}

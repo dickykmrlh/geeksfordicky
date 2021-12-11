@@ -1,5 +1,7 @@
 package array
 
+import "geeksfordicky/search"
+
 func leftRotateByOne(arr []int) {
 	firstItem := arr[0]
 	for i := 0; i < len(arr)-1; i++ {
@@ -44,4 +46,6 @@ func RotateArrayReverseArray(arr []int, rotation int) []int {
 	return arr
 }
 
-
+func FindHowManyTimeArrayHadBeenRotated(arr []int) int {
+	return search.FindPivot(arr, 0, len(arr)-1) + 1
+}
