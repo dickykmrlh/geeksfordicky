@@ -1,5 +1,7 @@
 package rearrange
 
+import "sort"
+
 /*
 SortArrayValueToIndexPosition rearrange array such that the value
 match the index position of the array, if the value can't be found for
@@ -7,20 +9,20 @@ that particular index, replace it with -1
  */
 func SortArrayValueToIndexPosition(arr []int) []int{
 	var results []int
-	for index, _ := range arr {
-		found := false
-		updatedValue := 0
-		for _, value := range arr {
-			if index == value {
-				found = true
-				updatedValue = value
-			}
-		}
+	sort.Ints(arr)
+	i, j := 0, 0
 
-		if found {
-			results = append(results, updatedValue)
-		} else {
-			results = append(results, -1)
+	for ; i < len(arr); i++ {
+		for j < len(arr) {
+			if i == arr[j] {
+				results = append(results, arr[j])
+				j++
+				break
+			} else if i < arr[j] {
+				results = append(results, -1)
+				break
+			}
+			j++
 		}
 	}
 
