@@ -1,4 +1,4 @@
-package array
+package rotation
 
 import "geeksfordicky/search"
 
