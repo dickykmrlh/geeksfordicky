@@ -59,3 +59,24 @@ func OddEvenPositionArrangeWithSomeCondition(arr []int) []int {
 
 	return arr
 }
+
+/*
+MoveZeroTillTheEnd
+Given an array of random numbers, Push all the zero’s of a given array to the end of the array
+ */
+func MoveZeroTillTheEnd(arr []int) []int{
+	nonZeroValueCount := 0
+	for i := 0; i < len(arr); i++ {
+		if arr[i] > 0 {
+			arr[nonZeroValueCount] = arr[i]
+			nonZeroValueCount++
+		}
+	}
+
+	for nonZeroValueCount < len(arr) {
+		arr[nonZeroValueCount] = 0
+		nonZeroValueCount++
+	}
+
+	return arr
+}

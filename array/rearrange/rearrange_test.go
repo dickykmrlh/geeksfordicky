@@ -68,3 +68,35 @@ func TestOddEvenArrangeWithSomeCondition(t *testing.T) {
 		})
 	}
 }
+
+func TestMoveZeroTillTheEnd(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		expected []int
+	}{
+		{
+			name: "should move all 0 element at the very last of array",
+			args: args{
+				arr: []int{1, 2, 0, 4, 3, 0, 5, 0},
+			},
+			expected: []int{1, 2, 4, 3, 5, 0, 0, 0},
+		},
+		{
+			name: "should move all 0 element at the very last of array",
+			args: args{
+				arr: []int{1, 2, 0, 0, 0, 3, 6},
+			},
+			expected: []int{1, 2, 3, 6, 0, 0, 0},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			actual := MoveZeroTillTheEnd(tt.args.arr)
+			assert.Equal(t, tt.expected, actual)
+		})
+	}
+}
