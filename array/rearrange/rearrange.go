@@ -95,3 +95,25 @@ func MinimumSwapRequire(arr []int, k int) int {
 	}
 	return numberLessThenKNotSubsequentlyTogether
 }
+
+/*
+ReOrderArray
+Given an array of integers, task is to print the array in the order – the smallest number, the largest number,
+2nd smallest number, 2nd largest number, 3rd smallest number, 3rd largest number and so on ...
+ */
+func ReOrderArray(arr []int) []int{
+	sort.Ints(arr)
+	var results []int
+	i, j := 0, len(arr) - 1
+	for  i < j {
+		results = append(results, arr[i])
+		results = append(results, arr[j])
+		i++
+		j--
+	}
+
+	if i == j {
+		results = append(results, arr[i])
+	}
+	return results
+}

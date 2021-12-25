@@ -135,3 +135,35 @@ func TestMinimumSwapRequire(t *testing.T) {
 		})
 	}
 }
+
+func TestReOrderArray(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		expected []int
+	}{
+		{
+			name: "should rearrange array, in order such that 1st smallest, 1nd largest, 2nd smallest, 2nd largest, so on..",
+			args: args{
+				arr: []int{5, 8, 1, 4, 2, 9, 3, 7, 6},
+			},
+			expected: []int{1, 9, 2, 8, 3, 7, 4, 6, 5},
+		},
+		{
+			name: "should rearrange array, in order such that 1st smallest, 1nd largest, 2nd smallest, 2nd largest, so on..",
+			args: args{
+				arr: []int{1, 2, 3, 4},
+			},
+			expected: []int{1, 4, 2, 3},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			actual := ReOrderArray(tt.args.arr)
+			assert.Equal(t, tt.expected, actual)
+		})
+	}
+}
