@@ -80,3 +80,18 @@ func MoveZeroTillTheEnd(arr []int) []int{
 
 	return arr
 }
+
+/*
+MinimumSwapRequire
+Given an array of n positive integers and a number 'k'.
+Find the minimum number of swaps required to bring all the numbers less than or equal to 'k' together.
+*/
+func MinimumSwapRequire(arr []int, k int) int {
+	numberLessThenKNotSubsequentlyTogether := 0
+	for i := 1; i < len(arr); i++ {
+		if arr[i] <= k && arr[i-1] > k {
+			numberLessThenKNotSubsequentlyTogether++
+		}
+	}
+	return numberLessThenKNotSubsequentlyTogether
+}

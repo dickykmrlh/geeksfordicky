@@ -100,3 +100,38 @@ func TestMoveZeroTillTheEnd(t *testing.T) {
 		})
 	}
 }
+
+func TestMinimumSwapRequire(t *testing.T) {
+	type args struct {
+		arr []int
+		k   int
+	}
+	tests := []struct {
+		name string
+		args args
+		expected int
+	}{
+		{
+			name: "should return correct number swap required to bring all the numbers less than or equal to 'k' together",
+			args: args{
+				arr: []int{2, 1, 5, 6, 3},
+				k: 3,
+			},
+			expected: 1,
+		},
+		{
+			name: "should return correct number swap required to bring all the numbers less than or equal to 'k' together",
+			args: args{
+				arr: []int{2, 7, 9, 5, 8, 7, 4},
+				k: 5,
+			},
+			expected: 2,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			actual := MinimumSwapRequire(tt.args.arr, tt.args.k)
+			assert.Equal(t, tt.expected, actual)
+		})
+	}
+}
