@@ -130,16 +130,13 @@ func DoubleTheFirstElementAndMoveZeroToEnd(arr []int) []int{
 		return arr
 	}
 
-	i, j := 0, 1
-	for j < len(arr) {
+	for i := 0; i  < len(arr)-1; i++ {
 		if arr[i] != 0 {
-			if arr[i] == arr[j] {
-				arr[i] += arr[j]
-				arr[j] -= arr[j]
+			if arr[i] == arr[i+1] {
+				arr[i] = 2 * arr[i]
+				arr[i+1] = 0
 			}
 		}
-		i++
-		j++
 	}
 
 	return MoveZeroTillTheEnd(arr)
