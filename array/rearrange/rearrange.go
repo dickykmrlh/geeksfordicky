@@ -117,3 +117,30 @@ func ReOrderArray(arr []int) []int{
 	}
 	return results
 }
+
+/*
+DoubleTheFirstElementAndMoveZeroToEnd
+For a given array of n integers and assume that ‘0’ is an invalid number and all others as a valid number.
+Convert the array in such a way that if both current and next element is valid and both have same value
+then double current value and replace the next number with 0. After the modification,
+rearrange the array such that all 0’s shifted to the end.
+ */
+func DoubleTheFirstElementAndMoveZeroToEnd(arr []int) []int{
+	if len(arr) <= 1 {
+		return arr
+	}
+
+	i, j := 0, 1
+	for j < len(arr) {
+		if arr[i] != 0 {
+			if arr[i] == arr[j] {
+				arr[i] += arr[j]
+				arr[j] -= arr[j]
+			}
+		}
+		i++
+		j++
+	}
+
+	return MoveZeroTillTheEnd(arr)
+}

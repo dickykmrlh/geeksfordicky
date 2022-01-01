@@ -167,3 +167,42 @@ func TestReOrderArray(t *testing.T) {
 		})
 	}
 }
+
+func TestDoubleTheFirstElementAndMoveZeroToEnd(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		expected []int
+	}{
+		{
+			name: "should return same array, if array length is only 1",
+			args: args{
+				arr: []int{2},
+			},
+			expected: []int{2},
+		},
+		{
+			name: "should rearrange the array, such that it will double the first element and move zero to end",
+			args: args{
+				arr: []int{2, 2, 0, 4, 0, 8},
+			},
+			expected: []int{4, 4, 8, 0, 0, 0},
+		},
+		{
+			name: "should rearrange the array, such that it will double the first element and move zero to end",
+			args: args{
+				arr: []int{0, 2, 2, 2, 0, 6, 6, 0, 0, 8},
+			},
+			expected: []int{4, 2, 12, 8, 0, 0, 0, 0, 0, 0},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			actual := DoubleTheFirstElementAndMoveZeroToEnd(tt.args.arr)
+			assert.Equal(t, tt.expected, actual)
+		})
+	}
+}
